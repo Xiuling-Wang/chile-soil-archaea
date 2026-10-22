@@ -1,9 +1,15 @@
-# Chilean soil archaea iDNA/eDNA manuscript: Round03 reproducibility release
+# Chilean soil archaea: paired iDNA/eDNA communities
 
-This repository contains the processed data and current R code supporting the
-manuscript **“Archaeal communities in intracellular and extracellular DNA
-fractions share broad regional patterns but diverge locally in Chilean
-soils.”**
+This repository contains processed data, the preserved R analysis snapshot,
+and current figure-layout recipes supporting **“Soil archaeal communities in
+intra- and extracellular DNA share broad regional patterns but diverge locally
+along the Chilean Coastal Cordillera.”** The manuscript was submitted to
+Applied Soil Ecology in September 2026; no acceptance is asserted.
+
+The 23 October 2026 synchronization corrects the figure map and adds the
+[submitted-figure layout entry](release_2026-10-23/README.md). It does not refit
+models, alter the submitted manuscript, or present the older plotting scripts
+as pixel-identical renderers of the final submitted figures.
 
 The analysis compares operational intracellular-DNA (iDNA) and
 extracellular-DNA (eDNA) fractions across four Chilean sites and five soil
@@ -14,6 +20,8 @@ activity, viability, or DNA mass.
 Raw demultiplexed 16S rRNA gene sequences are available from the European
 Nucleotide Archive under [PRJEB73502](https://www.ebi.ac.uk/ena/browser/view/PRJEB73502).
 The repository provides the processed tables needed by the scripts below.
+Thesis supplements and the journal-to-thesis numbering map are available in
+[Zenodo version 1.0.5](https://doi.org/10.5281/zenodo.23225015).
 
 ## Start here
 
@@ -34,21 +42,23 @@ the same processed inputs.
 
 | Manuscript label | Scientific role | Script(s) |
 | --- | --- | --- |
-| Fig. 1 | Site context and archaeal sequence proportion | `100_Fig1_frame_aligned_v10.R` |
+| Fig. 1 | Site context and sampling design | `100_Fig1_frame_aligned_v10.R`; current layout recipe below |
 | Fig. 2 | Class composition and Crenarchaeota phylogeny | `87_Fig2_tree_readability_round45.R`, sourcing `24_...R` and `22_...R` |
-| Fig. 3 | Paired concordance-divergence evidence chain | `101_Fig3_concordance_divergence_round50.R`, after `97_...R` |
+| Fig. 3 | Procrustes concordance and archaeal read-share comparison | `101_Fig3_concordance_divergence_round50.R`, after `97_...R`; current layout recipe below |
 | Fig. 4 | dbRDA and hierarchical partitioning | `30_Fig4_dbRDA_plus_HP.R` |
 | Fig. S1 | Phylum/genus composition | `33_SI_taxonomic_composition_phylum_genus.R` |
 | Fig. S2 | Rarefaction and 500-read sensitivity | `32_SI_QC_rarefaction_plus_500sensitivity.R` |
-| Figs. S3-S4 | Complete phylogenetic tracks | `22_legacy_tree_refmeta_phylum_panels.R` |
-| Fig. S5 | Archaeal diversity and descriptive cross-domain trajectories | `95_Fig3_crossdomain_diversity_round47.R`, after `13_...R` |
-| Fig. S6 | iDNA/eDNA ASV overlap | `68_FigS3_iDNA_eDNA_ASV_overlap.R` |
-| Fig. S7 | Profile-aware paired sequence-proportion offsets | `104_round55_profile_read_share_offsets.R`, after `97_...R` |
+| Fig. S3 | Archaeal diversity and descriptive cross-domain trajectories | `95_Fig3_crossdomain_diversity_round47.R`, after `13_...R` |
+| Figs. S4–S5 | Complete phylogenetic tracks | `22_legacy_tree_refmeta_phylum_panels.R` |
+| Fig. S6 | 42-ASV halophile/methanogen context across sites and DNA pools | `release_2026-10-23/render_s6.py`; supplied site-by-pool values |
 
-Several script filenames retain historical figure numbers. The manuscript
-labels in this table are authoritative.
+Several script filenames retain historical figure numbers. The submitted
+manuscript has four main and six supplementary figures, not seven supplements.
+The current map above and the separate layout recipe are authoritative for
+figure identification. Historical ASV-overlap and profile-offset audit scripts
+remain in the repository but are not current supplementary figure labels.
 
-To reproduce the frozen house-style variants used in the manuscript:
+To reproduce historical house-style plot variants (before final author layout):
 
 ```bash
 ROUND48_HOUSESTYLE_OUTPUT=1 ROUND48_FIG2_HOUSESTYLE_V3=1 \
@@ -89,10 +99,11 @@ the other figures use repository data only.
 scripts/                         current analysis and figure scripts
 data/                            processed count, taxonomy, metadata, and tree inputs
 analysis/reframed_figures/       fixed Fig. 1 source data
-analysis/submission_statistics/  fixed alpha-diversity source for direct Fig. S5 use
+analysis/submission_statistics/  fixed alpha-diversity source for current Fig. S3
 analysis/tree_audit/             ASV and reference-tip annotations
 analysis/reproducibility/        recorded R session information
 figures/                         generated outputs (created by scripts)
+release_2026-10-23/              current vector-layout recipes and frozen inputs
 ```
 
 The canonical rarefied table is
@@ -131,7 +142,7 @@ Recorded session information is in
 manuscript. It preserves all 1,166 archaeal ASV rows and their counts exactly.
 The 59,488 non-archaeal ASV rows are represented by one
 `NON_ARCHAEAL_TOTAL` row, preserving the exact total prokaryotic read count in
-each library. This retains every quantity used by Fig. 1, rarefaction, and the
+each library. This retains every quantity used by the read-share, rarefaction, and
 negative-control sensitivity scripts, but it cannot be used to analyse
 non-archaeal taxonomic composition. See `DATA_NOTES.md` for validation details.
 
