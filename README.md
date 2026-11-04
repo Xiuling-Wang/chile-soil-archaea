@@ -21,7 +21,17 @@ Raw demultiplexed 16S rRNA gene sequences are available from the European
 Nucleotide Archive under [PRJEB73502](https://www.ebi.ac.uk/ena/browser/view/PRJEB73502).
 The repository provides the processed tables needed by the scripts below.
 Thesis supplements and the journal-to-thesis numbering map are available in
-[Zenodo version 1.0.5](https://doi.org/10.5281/zenodo.23225015).
+[Zenodo version 1.0.6](https://doi.org/10.5281/zenodo.23958664).
+
+## Current source-paper V16 outputs — 5 November 2026
+
+Zenodo 1.0.6 contains the current thesis Appendix B figures and tables.
+The latest Fig. 2B / Fig. S4 labels use “function unresolved”; the older
+23 October layout recipes below precede those label revisions and are retained
+as historical renderers, not exact reproductions of the current V16 artwork.
+The analysis snapshot is unchanged in this documentation update. Protocol B1
+in Zenodo remains the historical public protocol; the local revised protocol
+awaits source verification of the TE-buffer preparation detail.
 
 ## Start here
 
